@@ -1,10 +1,28 @@
-import './App.css';
+import { Provider } from 'react-redux';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Layout } from './components';
+import { RoutesPath } from './constants/Routes';
+import { Home, Login, Register } from './pages';
+import { store } from './store';
 
-function App() {
+export const App = () => {
   return (
-    <div className="App">
-      <h1>Vite + React</h1>
-    </div>
+    <Layout>
+      <Routes>
+        <Route path={RoutesPath.HOME} element={<Home />} />
+        <Route path={RoutesPath.LOGIN} element={<Login />} />
+        <Route path={RoutesPath.REGISTER} element={<Register />} />
+      </Routes>
+    </Layout>
   );
-}
-export default App;
+};
+
+export const WrappedApp = () => {
+  return (
+    <Provider store={store}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>
+  );
+};

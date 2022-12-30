@@ -22,5 +22,12 @@ module.exports = {
   rules: {
     // 'linebreak-style': ['error', 'windows'],
     'react/react-in-jsx-scope': 0,
+    'react/require-default-props': 0,
+    'react/function-component-definition': [
+      2,
+      {
+        namedComponents: ['function-declaration' | 'arrow-function'],
+      },
+    ],
   },
 };
